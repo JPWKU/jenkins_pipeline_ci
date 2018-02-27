@@ -1,0 +1,8 @@
+---
+- project:
+    jobs:
+      - '{project-name}-{stream}-verify-mock'
+      - '{project-name}-{stream}-verify-mock'
+    name: jenkins_pipeline_presentation_jobs
+    project: jenkins_pipeline_presentation
+    project-name: jenkins_pipeline_presentation

@@ -1,0 +1,54 @@
+---
+# GLOBAL jenkins defaults
+
+- defaults:
+    name: global
+
+    # lftools
+    lftools-version:  <1.0.0
+
+    # lf-infra-defaults
+    jenkins-ssh-credential: 'edgex-jenkins-ssh'
+
+    # build discards
+    build-days-to-keep: 30
+
+    # Timeout in minutes
+    build-timeout: 360
+    build-node: centos7-basebuild-2c-1g
+
+    archive-artifacts: ''
+
+    # Set default maven version used for everything
+    mvn-version: 'mvn33'
+
+    # Default maven goals
+    mvn-goals: 'clean install'
+    mvn-opts: ''
+
+    # GitHub configuration
+    git-url: https://github.com
+    git-clone-url: 'git@github.com:'
+    github-org: jpwku
+
+    # default pr_whitelist to some LF RelEng staff
+    github_pr_whitelist:
+      - jpwku
+      - tykeal
+      - zxiiro
+    # default pr_admin_list to LF RelEng lead
+    github_pr_admin_list:
+      - tykeal
+
+    # Maven / Java
+    edgex-infra-mvn-opts: |
+        --show-version
+        --batch-mode
+        -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+        -Djenkins
+        -Dmaven.repo.local=/tmp/r
+        -Dorg.ops4j.pax.url.mvn.localRepository=/tmp/r
+
+    # Nexus
+    staging-profile-id: a004df83a6249
+    mvn-staging-id: staging
